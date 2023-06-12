@@ -1,0 +1,94 @@
+/* 
+ * File:   SatirListesi.hpp
+ * Author: Berkay Kopuz
+ *
+ * Created on November 10, 2022, 6:26 PM
+ */
+ 
+ #include <iostream>
+ #include "SatirListesi.hpp"
+
+ 
+ using namespace std;
+ 
+ SatirListesi :: SatirListesi(){
+	 head = NULL;
+	 size = 0;
+ }		
+ bool SatirListesi :: isEmpty()const{
+	 return size == 0;
+ } 
+ int SatirListesi :: Count()const{
+	return size;
+ }
+ const int* SatirListesi :: FindFirst(){
+	 if(isEmpty()) throw "Node is empty."
+	 return head->item;
+ }
+ const int* SatirListesi ::  FindLast(){
+	 if(isEmpty()) throw "Node is empty."
+	 return FindPrevByPosition(size)->item;
+ }
+ Node<int>* SatirListesi ::  FindPrevByPosition(int position){
+	 if(position<0 || position>size) throw "Index out of Range";
+			int index=1;
+			for(Node<int> *tmp = head; tmp!=NULL; tmp=tmp->next,index++){
+				if(position == index) return tmp;
+			}
+			return NULL;
+ }
+ void SatirListesi :: RemoveAt(){
+	 if(index<0 || index>size) throw "Out of range";
+	 Node<int> *del;
+	 if(index==0){
+		 del = head;
+		 head = head->next;
+		 if(head != NULL) head->prev = NULL;
+		 
+		 
+	 }
+	 else{
+		 Node<int> *prv = FindPrevByPosition(index);
+		 del= prv->next;
+		 prv->next = del->next;
+		 if(del->next!=NULL) del->next->prev = prv;
+	 }
+	 size--;
+	 delete del;
+ }
+ void SatirListesi :: Add(const int& item){
+	 Insert(item,size);
+ }
+ void SatirListesi ::  Insert(const int& item, int index){
+	 if(index<0 || index > size) throw "Index out of range";
+	 if(index==0){
+		 head= new Node<int>(item,head);
+		 if(head->next != NULL){
+			 head->next->prev = head;
+		 }
+	 }
+	 else{
+		 Node<int> *prv = FindPrevByPosition(index);
+		 prv->next=new Node<int>(item, prv->next, prv);
+		 if(prv->next->next != NULL) prv->next->next->prev= prv->next;
+	 }
+	 
+ }
+ void SatirListesi :: Reverse(){
+	 for(Node<int> *itr =head; itr!=NULL;){
+		 Node<int> *tmp = itr->next;
+		 itr->next = itr->prev;
+		 itr->prev = tmp;
+		 if(tmp==NULL){
+			 head = itr;
+			 break;
+		 }
+		 itr = tmp;
+	} 
+ }
+ 
+ 
+ 
+
+
+ 

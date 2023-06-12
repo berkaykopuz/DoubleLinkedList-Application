@@ -1,0 +1,14 @@
+#include "SatirListesi.hpp"
+#include "YoneticiListesi.hpp"
+#include "DosyaOkuyucu.hpp"
+#include "PrintConsole.hpp"
+
+using namespace std;
+
+int main(int argc, char** argv){
+	DosyaOkuyucu *dosyaOkuyucu = new DosyaOkuyucu("veriler.txt");
+	
+	YoneticiListesi *yoneticiListesi = DosyaOkuyucu->GetYoneticiListesi();
+	
+	yoneticiListesi->PrintYoneticiListesi();
+}

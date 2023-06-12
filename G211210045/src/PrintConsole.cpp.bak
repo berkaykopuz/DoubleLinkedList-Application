@@ -1,0 +1,69 @@
+#include "PrintConsole.hpp"
+#include <iomanip>
+#include <iostream>
+
+using namespace std;
+
+PrintConsole :: PrintConsole(YoneticiListesi *yoneticilistesi){
+	this->yoneticilistesi = yoneticilistesi;
+}
+
+ void PrintConsole :: cizgiOlustur(int adet){
+	for(int i=0; i<adet; i++){
+		cout<< "----------  ";
+	}
+	
+	cout<<endl;
+}
+
+ void PrintConsole :: mevcutyoneticiadresiYaz(int adet){
+	YoneticiListesi *tmp = yoneticilistesi;
+	for(int i=0; i<adet; i++, tmp->head = tmp->head->next){
+		cout<< " " << tmp->head << " " << "  ";
+	}
+	
+	cout << endl;
+}
+void PrintConsole :: oncekiYaz(int adet){
+	YoneticiListesi *tmp = yoneticilistesi;
+	for(int i=0; i<adet; i++, tmp->head->prev=tmp->head){
+		cout<< "|" << tmp->head->prev << "|" << "  ";
+	}
+	
+	cout << endl;
+}
+void PrintConsole :: ortalamaYaz(int adet){
+	
+	YoneticiListesi *tmp = yoneticilistesi;
+	
+	for(int i=0; i<adet; i++){
+		cout<< "|" << tmp->average << "|" << "  ";
+	}
+	
+	cout << endl;
+}
+ void PrintConsole :: sonrakiYaz(int adet){
+	YoneticiListesi *tmp = yoneticilistesi;
+	for(int i=0; i<adet; i++,tmp->head->next = tmp->head->next->next){
+		cout<< "|" << tmp->head->next << "|" << "  ";
+	}
+	
+	cout << endl;
+}
+
+void PrintConsole :: printYoneticiListesi(int adet){
+	cout << "ilk" << setw(20) << "--->" << endl;
+	cizgiOlustur(adet);
+	mevcutyoneticiadresiYaz(adet);
+	cizgiOlustur(adet);
+	oncekiYaz(adet);
+	cizgiOlustur(adet);
+	ortalamaYaz(adet);
+	cizgiOlustur(adet);
+	sonrakiYaz(adet);
+	
+	
+	
+	
+	
+}

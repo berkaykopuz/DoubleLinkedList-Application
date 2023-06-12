@@ -1,0 +1,33 @@
+#ifndef PRINTCONSOLE_HPP
+#define PRINTCONSOLE_HPP
+
+#include "YoneticiListesi.hpp"
+
+class PrintConsole{
+	
+	public:
+	
+	PrintConsole(YoneticiListesi* yoneticilistesi);
+	YoneticiListesi *yoneticilistesi;
+	void cizgiOlustur(int);
+	void mevcutyoneticiadresiYaz(int);
+	void printYoneticiListesi(int);
+	void oncekiYaz(int);
+	void ortalamaYaz(int);
+	void sonrakiYaz(int);
+	
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif

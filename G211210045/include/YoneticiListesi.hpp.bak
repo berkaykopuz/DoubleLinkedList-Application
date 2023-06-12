@@ -1,0 +1,44 @@
+
+#ifndef YONETICILISTESI_HPP
+#define YONETICILISTESI_HPP
+
+#include <iostream>
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+#include "SatirListesi.hpp"
+#include "YoneticiListesiDugum.hpp"
+
+class YoneticiListesi{
+	private:
+	
+    YoneticiListesiDugum *head;
+    int size;
+    YoneticiListesiDugum* FindPreviousByPosition(int index);
+    YoneticiListesiDugum* FindPosition(int index);
+	
+	public:
+	
+	YoneticiListesi();
+	int Count()const;
+	SatirListesi*& first();
+    SatirListesi*& last();
+    bool isEmpty()const;
+    void add(SatirListesi*& item);
+    void insert(int index, SatirListesi*& item);
+    int indexOf(SatirListesi*& item);
+    void remove(SatirListesi*& item);
+    void randomRemoveAtSatirListesi(int index, int inlineIndex);
+    void calculateAveragee(int index);
+    int randomGenerator(int index);
+    void removeAt(int index);
+    void moveNode(int from, int to);
+    bool find(SatirListesi*& item);
+    void reverse();
+    void sortByAverage();
+    SatirListesi*& elementAt(int index);
+    void clear();
+    void printIndex(int index, int x, int y);
+    ~YoneticiListesi();
+};
+
+#endif

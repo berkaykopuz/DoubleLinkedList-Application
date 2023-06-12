@@ -1,0 +1,22 @@
+#ifndef YONETICIDUGUM_HPP
+#define YONETICIDUGUM_HPP
+
+
+#include "SatirListesi.hpp"
+
+class YoneticiListesiDugum {
+public:
+    SatirListesi* data;
+    double average;
+    YoneticiListesiDugum *next;
+    YoneticiListesiDugum *prev;
+
+    YoneticiListesiDugum(SatirListesi* data, YoneticiListesiDugum *next, YoneticiNode *prev);
+    YoneticiListesiDugum(SatirListesi* data, YoneticiListesiDugum *next);
+    YoneticiListesiDugum(SatirListesi* data);
+    double calculateAverage();
+};
+
+
+#endif 
+

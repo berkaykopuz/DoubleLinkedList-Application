@@ -1,0 +1,32 @@
+#ifndef DOSYAOKUYUCU_HPP
+#define DOSYAOKUYUCU_HPP
+
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+
+#include "SatirListesi.hpp"
+#include "YoneticiListesi.hpp"
+
+using namespace std;
+
+class DosyaOkuyucu{
+	private:
+	SatirListesi **lines;
+	string fileName;
+	void readLine();
+	int lineCount();
+	
+	public:
+	DosyaOkuyucu();
+	~DosyaOkuyucu();
+	YoneticiListesi* GetYoneticiListesi();
+	
+};
+
+
+
+
+
+#endif

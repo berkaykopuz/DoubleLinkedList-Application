@@ -1,0 +1,39 @@
+/* 
+ * File:   SatirListesi.hpp
+ * Author: Berkay Kopuz
+ *
+ * Created on November 10, 2022, 6:26 PM
+ */
+ 
+#ifndef SATIRLISTESI_HPP
+#define SATIRLISTESI_HPP
+
+#include "SatirListesiDugum.hpp";
+
+
+
+class SatirListesi{
+	private:
+		SatirListesiDugum *head;
+		int size; //??public de olabilir
+		
+		SatirListesiDugum* FindPrevByPosition(int position);
+	
+	
+	public:
+		SatirListesi();
+		bool isEmpty()const;
+		int Count()const;
+		int IndexOf(const int& item);
+		void Add(const int& item);
+		void Insert(const int& item, int index);
+		const int& FindFirst();
+		const int& FindLast();
+		void Remove(const int& item);
+		void RemoveAt(const int& item, int index);
+		void Reverse();
+		
+	
+};
+
+#endif
